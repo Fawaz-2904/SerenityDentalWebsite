@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Full Mouth Rehabilitation | Serenity Dental</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --teal: #0f766e;
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fbfb;
+      color: #0f172a;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    @keyframes float1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(80px, 40px);
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(-60px, -30px);
+      }
+    }
+
+    .blob1 {
+      animation: float1 18s ease-in-out infinite;
+    }
+
+    .blob2 {
+      animation: float2 22s ease-in-out infinite;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glass {
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    #progressBar {
+      transform-origin: left;
+    }
+
+    .image-wrap {
+      perspective: 1200px;
+    }
+
+    .image-card {
+      transform-style: preserve-3d;
+      transition: transform .7s ease;
+    }
+
+    .image-wrap:hover .image-card {
+      transform: rotateX(3deg) rotateY(-5deg) scale(1.01);
+    }
+
+    @media(max-width:768px) {
+
+      .glass {
+        backdrop-filter: blur(12px);
+      }
+
+      .image-wrap:hover .image-card {
+        transform: none;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PROGRESS -->
+
+  <div class="fixed top-0 left-0 w-full h-[3px] bg-white/40 backdrop-blur-xl z-[999]">
+    <div id="progressBar"
+      class="h-full bg-gradient-to-r from-teal-400 via-teal-600 to-cyan-500 scale-x-0"></div>
+  </div>
+
+  <!-- BACKGROUND -->
+
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+
+    <div class="absolute inset-0 bg-gradient-to-br from-white via-teal-50/40 to-white"></div>
+
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-teal-300/20 rounded-full blur-3xl blob1">
+    </div>
+
+    <div
+      class="absolute bottom-[-10%] right-[-10%] w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-cyan-300/20 rounded-full blur-3xl blob2">
+    </div>
+
+  </div>
+
+  <!-- HERO -->
+
+  <section class="pt-10 md:pt-12 pb-16 md:pb-24 lg:pb-28 px-4 sm:px-6 lg:px-20 fade-up">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+        <!-- LEFT -->
+
+        <div class="lg:col-span-7">
+
+          <div class="flex items-center gap-4 mb-8">
+
+            <span class="h-px w-16 bg-teal-600"></span>
+
+            <span class="text-teal-600 text-[10px] sm:text-xs font-bold uppercase tracking-[0.4em]">
+              Advanced Dental Restoration
+            </span>
+
+          </div>
+
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-[1] md:leading-[0.95] tracking-tight font-semibold">
+
+            Full Mouth
+            <br>
+
+            <span
+              class="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">
+              Rehabilitation
+            </span>
+
+          </h1>
+
+          <p
+            class="mt-6 md:mt-10 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-500 border-l-2 border-teal-600/20 pl-4 md:pl-8">
+
+            Comprehensive restorative dental care designed to rebuild oral function, improve aesthetics, restore bite
+            balance, and create healthier, confident smiles through advanced treatment planning.
+
+          </p>
+
+          <!-- STATS -->
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-12">
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">360°</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Smile Restoration
+              </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">AI</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Precision Planning
+              </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">100%</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Personalized Care
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="lg:col-span-5">
+
+          <div class="image-wrap">
+
+            <div class="image-card relative">
+
+              <div
+                class="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-teal-300/30 to-cyan-300/30 rounded-[40px] md:rounded-[50px] blur-3xl">
+              </div>
+
+              <img
+                src="mouthblog.jpg"
+                class="relative w-full h-[340px] sm:h-[450px] lg:h-[600px] object-cover rounded-[28px] md:rounded-[40px] shadow-[0_40px_80px_rgba(15,118,110,0.18)] border border-white/60">
+
+              <div
+                class="absolute bottom-4 left-4 md:bottom-6 md:left-6 glass rounded-2xl md:rounded-3xl p-4 md:p-5 shadow-xl w-[190px] sm:w-[240px]">
+
+                <p class="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-teal-600 font-bold">
+                  Smile Insight
+                </p>
+
+                <h4 class="mt-2 md:mt-3 font-semibold text-sm sm:text-base md:text-lg leading-snug">
+                  Rebuild Function, Comfort & Confidence
+                </h4>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ARTICLE -->
+
+  <section class="px-4 sm:px-6 lg:px-20 pb-16 md:pb-24 lg:pb-28 fade-up">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div
+        class="glass rounded-[28px] md:rounded-[50px] shadow-[0_30px_80px_rgba(15,23,42,0.05)] overflow-hidden border border-white/60">
+
+        <div class="grid lg:grid-cols-12">
+
+          <!-- SIDEBAR -->
+
+          <div class="lg:col-span-3 lg:border-r border-slate-100 p-5 md:p-8 lg:p-10 bg-white/40">
+
+            <div class="lg:sticky lg:top-28">
+
+              <p class="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-bold mb-6">
+                Treatment Goals
+              </p>
+
+              <div class="space-y-4">
+
+                <div class="p-5 rounded-3xl bg-teal-50 border border-teal-100">
+
+                  <h4 class="font-semibold">Functional Restoration</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Improve chewing, speaking, and bite alignment.
+                  </p>
+
+                </div>
+
+                <div class="p-5 rounded-3xl bg-white border border-slate-100">
+
+                  <h4 class="font-semibold">Aesthetic Enhancement</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Restore a balanced, natural-looking smile.
+                  </p>
+
+                </div>
+
+                <div class="p-5 rounded-3xl bg-white border border-slate-100">
+
+                  <h4 class="font-semibold">Long-Term Oral Health</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Support healthier teeth, gums, and jaw stability.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- CONTENT -->
+
+          <div class="lg:col-span-9 p-5 sm:p-8 md:p-12 lg:p-16">
+
+            <div class="max-w-4xl space-y-14 md:space-y-20">
+
+              <div>
+
+                <p class="text-2xl sm:text-3xl md:text-4xl serif italic leading-relaxed text-slate-700">
+
+                  “Full mouth rehabilitation combines advanced restorative dentistry with personalized care to rebuild
+                  oral health, restore comfort, and transform smiles with precision.”
+
+                </p>
+
+              </div>
+
+              <div>
+
+                <div class="flex items-center gap-4 mb-6">
+
+                  <div class="w-12 h-[1px] bg-teal-600"></div>
+
+                  <span class="text-teal-600 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em]">
+                    Comprehensive Care
+                  </span>
+
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-8">
+
+                  Restoring Oral
+                  <span class="serif italic text-teal-600 font-normal">
+                    Health & Harmony
+                  </span>
+
+                </h2>
+
+                <p class="text-base md:text-lg text-slate-500 leading-relaxed">
+
+                  Full mouth rehabilitation involves a customized combination of restorative and cosmetic dental
+                  treatments such as crowns, bridges, implants, veneers, bite correction, and gum care. Every
+                  treatment plan is designed to improve oral function, enhance aesthetics, and provide lasting comfort
+                  tailored to each patient’s needs.
+
+                </p>
+
+              </div>
+
+              <!-- CARDS -->
+
+              <div class="grid md:grid-cols-2 gap-5 md:gap-8">
+
+                <div
+                  class="group p-5 sm:p-6 md:p-8 rounded-[32px] bg-gradient-to-br from-teal-50 to-white border border-teal-100 hover:-translate-y-2 transition-all duration-500">
+
+                  <div
+                    class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-6 text-lg font-bold">
+                    01
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-semibold mb-4">
+                    Advanced Diagnostics
+                  </h3>
+
+                  <p class="text-slate-500 leading-relaxed">
+                    Digital scans, bite analysis, and personalized assessments help create precise rehabilitation
+                    treatment plans for optimal outcomes.
+                  </p>
+
+                </div>
+
+                <div
+                  class="group p-5 sm:p-6 md:p-8 rounded-[32px] bg-gradient-to-br from-teal-50 to-white border border-teal-100 hover:-translate-y-2 transition-all duration-500">
+
+                  <div
+                    class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-6 text-lg font-bold">
+                    02
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-semibold mb-4">
+                    Personalized Smile Restoration
+                  </h3>
+
+                  <p class="text-slate-500 leading-relaxed">
+                    Customized restorative solutions improve smile aesthetics, restore confidence, and support lasting
+                    oral wellness.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FULL MOUTH REHABILITATION SECTION ================= -->
+
+<!-- ===== FEATURED INSIGHTS ===== -->
+
+<section class="px-6 lg:px-20 pb-28 fade-up">
+
+    <div class="max-w-7xl mx-auto">
+  
+      <div class="flex items-end justify-between flex-wrap gap-6 mb-14">
+  
+        <div>
+  
+          <p class="text-teal-600 text-xs font-bold uppercase tracking-[0.4em] mb-4">
+            Advanced Restorative Dentistry
+          </p>
+  
+          <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">
+            Why Full Mouth
+            <span class="serif italic font-normal text-teal-600">
+              Rehabilitation Matters
+            </span>
+          </h2>
+  
+        </div>
+  
+        <p class="max-w-xl text-slate-500 leading-relaxed">
+          Full mouth rehabilitation restores oral function, aesthetics, comfort, and confidence through personalized dental treatments designed to rebuild long-term oral health.
+        </p>
+  
+      </div>
+  
+      <div class="grid lg:grid-cols-3 gap-8">
+  
+        <!-- CARD -->
+  
+        <div class="group relative overflow-hidden rounded-[36px] bg-white border border-slate-100 p-8 hover:-translate-y-2 transition-all duration-500 shadow-xl shadow-black/[0.03]">
+  
+          <div class="absolute top-0 right-0 w-40 h-40 bg-teal-100 rounded-full blur-3xl opacity-60"></div>
+  
+          <div class="relative">
+  
+            <div class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-teal-600/20">
+  
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M12 4v16m8-8H4"></path>
+              </svg>
+  
+            </div>
+  
+            <h3 class="text-2xl font-semibold mb-5">
+              Complete Restoration
+            </h3>
+  
+            <p class="text-slate-500 leading-relaxed">
+              Comprehensive dental rehabilitation restores damaged, worn, or missing teeth to improve overall oral function and comfort.
+            </p>
+  
+          </div>
+  
+        </div>
+  
+        <!-- CARD -->
+  
+        <div class="group relative overflow-hidden rounded-[36px] bg-gradient-to-br from-teal-600 to-teal-500 text-white p-8 hover:-translate-y-2 transition-all duration-500 shadow-[0_25px_60px_rgba(13,148,136,0.25)]">
+  
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+  
+          <div class="relative">
+  
+            <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/20 flex items-center justify-center mb-8">
+  
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M12 8v4l3 3"></path>
+                <circle cx="12" cy="12" r="9" stroke-width="1.8"></circle>
+              </svg>
+  
+            </div>
+  
+            <h3 class="text-2xl font-semibold mb-5">
+              Functional Balance
+            </h3>
+  
+            <p class="text-white/80 leading-relaxed">
+              Correcting bite alignment, jaw function, and tooth structure improves chewing efficiency, speech, and long-term oral stability.
+            </p>
+  
+          </div>
+  
+        </div>
+  
+        <!-- CARD -->
+  
+        <div class="group relative overflow-hidden rounded-[36px] bg-white border border-slate-100 p-8 hover:-translate-y-2 transition-all duration-500 shadow-xl shadow-black/[0.03]">
+  
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+  
+          <div class="relative">
+  
+            <div class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-teal-600/20">
+  
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+  
+            </div>
+  
+            <h3 class="text-2xl font-semibold mb-5">
+              Renewed Confidence
+            </h3>
+  
+            <p class="text-slate-500 leading-relaxed">
+              Restoring a healthy smile enhances appearance, boosts confidence, and improves everyday quality of life.
+            </p>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+  
+  <!-- ===== REHABILITATION TIMELINE ===== -->
+  
+  <section class="px-6 lg:px-20 pb-28 fade-up">
+  
+    <div class="max-w-6xl mx-auto">
+  
+      <div class="mb-16">
+  
+        <p class="text-teal-600 text-xs font-bold uppercase tracking-[0.4em] mb-4">
+          Smile Restoration Journey
+        </p>
+  
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">
+          Building a
+          <span class="serif italic font-normal text-teal-600">
+            Healthier Smile
+          </span>
+        </h2>
+  
+      </div>
+  
+      <div class="relative">
+  
+        <!-- vertical line -->
+        <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-teal-300 via-teal-500 to-transparent"></div>
+  
+        <div class="space-y-14">
+  
+          <!-- STEP -->
+  
+          <div class="relative pl-20">
+  
+            <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+              1
+            </div>
+  
+            <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+  
+              <h3 class="text-2xl font-semibold mb-4">
+                Comprehensive Evaluation
+              </h3>
+  
+              <p class="text-slate-500 leading-relaxed">
+                Detailed dental assessments, imaging, and bite analysis help create a personalized rehabilitation treatment plan.
+              </p>
+  
+            </div>
+  
+          </div>
+  
+          <!-- STEP -->
+  
+          <div class="relative pl-20">
+  
+            <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+              2
+            </div>
+  
+            <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+  
+              <h3 class="text-2xl font-semibold mb-4">
+                Restorative Treatments
+              </h3>
+  
+              <p class="text-slate-500 leading-relaxed">
+                Crowns, bridges, implants, veneers, and gum treatments work together to restore function, strength, and smile aesthetics.
+              </p>
+  
+            </div>
+  
+          </div>
+  
+          <!-- STEP -->
+  
+          <div class="relative pl-20">
+  
+            <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+              3
+            </div>
+  
+            <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+  
+              <h3 class="text-2xl font-semibold mb-4">
+                Long-Term Oral Care
+              </h3>
+  
+              <p class="text-slate-500 leading-relaxed">
+                Ongoing dental care, oral hygiene, and routine follow-ups help maintain rehabilitation results and overall oral wellness.
+              </p>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+  
+  <!-- ===== BLOG STYLE PARAGRAPH SECTION ===== -->
+  
+  <section class="px-6 lg:px-20 pb-28 fade-up">
+  
+    <div class="max-w-5xl mx-auto">
+  
+      <div class="glass rounded-[50px] p-10 md:p-16 shadow-[0_30px_80px_rgba(15,23,42,0.05)]">
+  
+        <p class="text-4xl serif italic text-slate-700 leading-relaxed mb-10">
+          “Full mouth rehabilitation is not only about restoring teeth — it is about rebuilding comfort, confidence, and quality of life.”
+        </p>
+  
+        <div class="space-y-8 text-lg leading-relaxed text-slate-500">
+  
+          <p>
+            Full mouth rehabilitation is a comprehensive dental approach designed to restore oral health, functionality, and aesthetics for individuals with damaged, worn, missing, or severely compromised teeth. It combines multiple restorative and cosmetic dental procedures to create a healthier and more balanced smile.
+          </p>
+  
+          <p>
+            The rehabilitation process begins with a thorough dental evaluation, including digital imaging, bite analysis, gum assessments, and personalized treatment planning. This helps identify underlying oral health concerns and ensures long-term treatment success.
+          </p>
+  
+          <p>
+            Treatments involved in full mouth rehabilitation may include dental crowns, bridges, implants, veneers, root canal therapy, gum treatments, and bite correction procedures. Each treatment is carefully planned to improve oral function and overall smile harmony.
+          </p>
+  
+          <p>
+            Beyond aesthetics, rehabilitation improves chewing efficiency, speech clarity, jaw alignment, and daily comfort. Properly restored teeth also help prevent further dental complications and improve long-term oral stability.
+          </p>
+  
+          <p>
+            Full mouth rehabilitation can significantly improve confidence and quality of life. With modern dental technologies and personalized care, patients can achieve a healthier, stronger, and naturally beautiful smile that supports long-term wellness.
+          </p>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+
+  <!-- CTA -->
+
+  <script>
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+
+      });
+
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    window.addEventListener('scroll', () => {
+
+      const scroll = window.scrollY;
+
+      const height =
+        document.body.scrollHeight - window.innerHeight;
+
+      document.getElementById('progressBar').style.transform =
+        `scaleX(${scroll / height})`;
+
+    });
+
+  </script>
+
+</body>
+
+</html>

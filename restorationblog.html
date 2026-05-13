@@ -1,30 +1,89 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Digital Dentistry | Serenity Dental</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .serif { font-family: 'Playfair Display', serif; }
-
-    /* Soft floating bg */
-    @keyframes float {
-      0%,100% { transform: translate(0,0); }
-      50% { transform: translate(60px,30px); }
+    :root {
+      --teal: #0f766e;
     }
 
-    .blob { animation: float 18s ease-in-out infinite; }
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fbfb;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* ===== AURORA ===== */
+
+    @keyframes float1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(80px, 40px);
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(-60px, -30px);
+      }
+    }
+
+    .blob1 {
+      animation: float1 18s ease-in-out infinite;
+    }
+
+    .blob2 {
+      animation: float2 22s ease-in-out infinite;
+    }
+
+    /* ===== REVEAL ===== */
 
     .fade-up {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.9s ease;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(.16, 1, .3, 1);
     }
 
     .fade-up.show {
@@ -32,173 +91,684 @@
       transform: translateY(0);
     }
 
+    /* ===== GLASS ===== */
+
+    .glass {
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    /* ===== PROGRESS ===== */
+
     #progressBar {
       transform-origin: left;
+    }
+
+    /* ===== IMAGE PARALLAX ===== */
+
+    .image-wrap {
+      perspective: 1200px;
+    }
+
+    .image-card {
+      transform-style: preserve-3d;
+      transition: transform .7s ease;
+    }
+
+    .image-wrap:hover .image-card {
+      transform: rotateX(3deg) rotateY(-5deg) scale(1.01);
+    }
+
+    @media(max-width:768px) {
+
+      .glass {
+        backdrop-filter: blur(12px);
+      }
+
+      .image-wrap:hover .image-card {
+        transform: none;
+      }
+
     }
   </style>
 </head>
 
-<body class="bg-white text-slate-900 selection:bg-teal-500/20">
+<body>
 
-  <!-- Progress Bar -->
-  <div class="fixed top-0 left-0 w-full h-[2px] bg-slate-100 z-[999]">
-    <div id="progressBar" class="h-full bg-teal-600 scale-x-0"></div>
-  </div>
+  <!-- ===== SCROLL PROGRESS ===== -->
 
-  <!-- BACKGROUND -->
-  <div class="fixed inset-0 -z-10 overflow-hidden">
-    <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-teal-300/20 blur-3xl rounded-full blob"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-teal-500/20 blur-3xl rounded-full blob"></div>
+  <div class="fixed top-0 left-0 w-full h-[3px] bg-white/40 backdrop-blur-xl z-[999]">
 
-    <!-- subtle grid -->
-    <div class="absolute inset-0 opacity-[0.04] 
-      bg-[linear-gradient(to_right,#0f766e_1px,transparent_1px),
-          linear-gradient(to_bottom,#0f766e_1px,transparent_1px)]
-      bg-[size:80px_80px]">
+    <div id="progressBar"
+      class="h-full bg-gradient-to-r from-teal-400 via-teal-600 to-cyan-500 scale-x-0">
     </div>
+
   </div>
 
-  <!-- HERO -->
-  <section class="px-6 lg:px-20 pt-32 pb-20 fade-up">
+  <!-- ===== BACKGROUND ===== -->
 
-    <div class="max-w-6xl mx-auto">
+  <div class="fixed inset-0 -z-10 overflow-hidden">
 
-      <div class="flex items-center gap-4 mb-6">
-        <span class="h-px w-12 bg-teal-600"></span>
-        <span class="text-teal-600 text-xs font-bold uppercase tracking-[0.3em]">
-          Clinical Journal
-        </span>
-      </div>
+    <div class="absolute inset-0 bg-gradient-to-br from-white via-teal-50/40 to-white"></div>
 
-      <div class="grid md:grid-cols-12 gap-10 items-end">
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-teal-300/20 rounded-full blur-3xl blob1">
+    </div>
 
-        <div class="md:col-span-7">
-          <h1 class="text-5xl md:text-7xl font-semibold leading-tight tracking-tight">
-            Digital Dentistry
-            <span class="block serif italic font-normal text-teal-600">
-              The New Standard
+    <div
+      class="absolute bottom-[-10%] right-[-10%] w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-cyan-300/20 rounded-full blur-3xl blob2">
+    </div>
+
+    <div class="absolute inset-0 opacity-[0.03]
+      bg-[linear-gradient(to_right,#0f766e_1px,transparent_1px),
+      linear-gradient(to_bottom,#0f766e_1px,transparent_1px)]
+      bg-[size:90px_90px]">
+    </div>
+
+  </div>
+
+  <!-- ===== HERO ===== -->
+
+  <section class="pt-10 md:pt-12 pb-16 md:pb-24 lg:pb-28 px-4 sm:px-6 lg:px-20 fade-up">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+        <!-- LEFT -->
+
+        <div class="lg:col-span-7">
+
+          <div class="flex items-center gap-4 mb-8">
+
+            <span class="h-px w-16 bg-teal-600"></span>
+
+            <span class="text-teal-600 text-[10px] sm:text-xs font-bold uppercase tracking-[0.4em]">
+              Future of Dentistry
             </span>
-          </h1>
-        </div>
 
-        <div class="md:col-span-5 md:text-right">
-          <p class="text-slate-500 text-lg leading-relaxed border-l md:border-l-0 md:border-r border-teal-600/20 pl-6 md:pl-0 md:pr-6">
-            Technology is redefining dentistry — making treatments faster, more precise, and far more comfortable than ever before.
+          </div>
+
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-[1] md:leading-[0.95] tracking-tight font-semibold">
+
+            Digital
+            <br>
+
+            <span
+              class="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">
+              Dentistry
+            </span>
+
+          </h1>
+
+          <p
+            class="mt-6 md:mt-10 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-500 border-l-2 border-teal-600/20 pl-4 md:pl-8">
+
+            The next generation of dental care powered by AI diagnostics, digital scanning, and ultra-precise treatment
+            planning designed for comfort and speed.
+
           </p>
 
-          <div class="mt-6 text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold">
-            5 Min Read • 2026
+          <!-- STATS -->
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-12">
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">3D</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Guided Imaging
+              </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">AI</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Smart Diagnostics
+              </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">24h</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Same Day Solutions
+              </p>
+
+            </div>
+
           </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="lg:col-span-5">
+
+          <div class="image-wrap">
+
+            <div class="image-card relative">
+
+              <div
+                class="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-teal-300/30 to-cyan-300/30 rounded-[40px] md:rounded-[50px] blur-3xl">
+              </div>
+
+              <img src="dentistryblog.jpg"
+                class="relative w-full h-[340px] sm:h-[450px] lg:h-[600px] object-cover rounded-[28px] md:rounded-[40px] shadow-[0_40px_80px_rgba(15,118,110,0.18)] border border-white/60">
+
+              <!-- floating card -->
+
+              <div
+                class="absolute bottom-4 left-4 md:bottom-6 md:left-6 glass rounded-2xl md:rounded-3xl p-4 md:p-5 shadow-xl w-[180px] sm:w-[230px]">
+
+                <p class="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-teal-600 font-bold">
+                  Clinical Insight
+                </p>
+
+                <h4 class="mt-2 md:mt-3 font-semibold text-sm sm:text-base md:text-lg leading-snug">
+                  Precision Dentistry with Digital Intelligence
+                </h4>
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
+
     </div>
+
   </section>
 
-  <!-- IMAGE -->
-  <section class="px-6 lg:px-20 pb-20 fade-up">
-    <div class="max-w-6xl mx-auto">
-      <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5"
-           class="w-full h-[520px] object-cover rounded-[40px] shadow-xl">
+  <!-- ===== ARTICLE ===== -->
+
+  <section class="px-4 sm:px-6 lg:px-20 pb-16 md:pb-24 lg:pb-28 fade-up">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div
+        class="glass rounded-[28px] md:rounded-[50px] shadow-[0_30px_80px_rgba(15,23,42,0.05)] overflow-hidden border border-white/60">
+
+        <div class="grid lg:grid-cols-12">
+
+          <!-- SIDEBAR -->
+
+          <div class="lg:col-span-3 lg:border-r border-slate-100 p-5 md:p-8 lg:p-10 bg-white/40">
+
+            <div class="lg:sticky lg:top-28">
+
+              <p class="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-bold mb-6">
+                Overview
+              </p>
+
+              <div class="space-y-4">
+
+                <div class="p-5 rounded-3xl bg-teal-50 border border-teal-100">
+
+                  <h4 class="font-semibold">3D Imaging</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Advanced scans with unmatched precision.
+                  </p>
+
+                </div>
+
+                <div class="p-5 rounded-3xl bg-white border border-slate-100">
+
+                  <h4 class="font-semibold">AI Analysis</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Early detection and predictive diagnostics.
+                  </p>
+
+                </div>
+
+                <div class="p-5 rounded-3xl bg-white border border-slate-100">
+
+                  <h4 class="font-semibold">Comfort First</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Faster appointments and smoother recovery.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- CONTENT -->
+
+          <div class="lg:col-span-9 p-5 sm:p-8 md:p-12 lg:p-16">
+
+            <div class="max-w-4xl space-y-14 md:space-y-20">
+
+              <!-- INTRO -->
+
+              <div>
+
+                <p class="text-2xl sm:text-3xl md:text-4xl serif italic leading-relaxed text-slate-700">
+
+                  “Digital dentistry combines advanced imaging, automation, and AI-powered workflows to create
+                  treatments that are faster, more precise, and deeply personalized.”
+
+                </p>
+
+              </div>
+
+              <!-- SECTION -->
+
+              <div>
+
+                <div class="flex items-center gap-4 mb-6">
+
+                  <div class="w-12 h-[1px] bg-teal-600"></div>
+
+                  <span class="text-teal-600 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em]">
+                    Evolution
+                  </span>
+
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-8">
+
+                  Traditional to
+                  <span class="serif italic text-teal-600 font-normal">
+                    Digital
+                  </span>
+
+                </h2>
+
+                <p class="text-base md:text-lg text-slate-500 leading-relaxed">
+
+                  Dentistry has evolved beyond physical molds and manual planning into intelligent digital ecosystems.
+                  Modern workflows improve precision, reduce treatment time, and create a significantly better patient
+                  experience.
+
+                </p>
+
+              </div>
+
+              <!-- CARDS -->
+
+              <div class="grid md:grid-cols-2 gap-5 md:gap-8">
+
+                <div
+                  class="group p-5 sm:p-6 md:p-8 rounded-[32px] bg-gradient-to-br from-teal-50 to-white border border-teal-100 hover:-translate-y-2 transition-all duration-500 shadow-lg shadow-transparent hover:shadow-teal-100">
+
+                  <div
+                    class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-6 text-lg font-bold">
+                    01
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-semibold mb-4">
+                    3D Digital Scanning
+                  </h3>
+
+                  <p class="text-slate-500 leading-relaxed">
+                    Replace uncomfortable impressions with highly accurate digital scans that improve comfort and
+                    precision.
+                  </p>
+
+                </div>
+
+                <div
+                  class="group p-5 sm:p-6 md:p-8 rounded-[32px] bg-gradient-to-br from-teal-50 to-white border border-teal-100 hover:-translate-y-2 transition-all duration-500 shadow-lg shadow-transparent hover:shadow-teal-100">
+
+                  <div
+                    class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-6 text-lg font-bold">
+                    02
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-semibold mb-4">
+                    AI Diagnostics
+                  </h3>
+
+                  <p class="text-slate-500 leading-relaxed">
+                    Intelligent systems help detect issues earlier and support more predictable treatment outcomes.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
+
   </section>
 
-  <!-- ARTICLE -->
-  <section class="px-6 lg:px-20 pb-24 fade-up">
-    <div class="max-w-6xl mx-auto bg-white rounded-[40px] shadow-xl border border-slate-100">
+  <!-- ================= NEW BLOG CONTENT SECTION ================= -->
 
-      <div class="max-w-4xl mx-auto px-8 md:px-12 py-20 space-y-16">
+<!-- ===== FEATURED INSIGHTS ===== -->
 
-        <!-- INTRO -->
-        <p class="text-2xl serif italic text-slate-700 leading-relaxed">
-          Digital dentistry uses advanced technologies like 3D imaging, AI diagnostics, and CAD/CAM systems to deliver faster, more precise treatments.
+<section class="px-6 lg:px-20 pb-28 fade-up">
+
+  <div class="max-w-7xl mx-auto">
+
+    <div class="flex items-end justify-between flex-wrap gap-6 mb-14">
+
+      <div>
+
+        <p class="text-teal-600 text-xs font-bold uppercase tracking-[0.4em] mb-4">
+          Clinical Insights
         </p>
 
-        <!-- SECTION -->
-        <div>
-          <h2 class="text-3xl font-semibold mb-4">
-            From Traditional to <span class="serif italic text-teal-600 font-normal">Digital</span>
-          </h2>
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">
+          Why Digital
+          <span class="serif italic font-normal text-teal-600">
+            Dentistry Matters
+          </span>
+        </h2>
+
+      </div>
+
+      <p class="max-w-xl text-slate-500 leading-relaxed">
+        Digital workflows are transforming every stage of dentistry — from diagnosis to final smile delivery — creating a faster, safer, and more personalized experience.
+      </p>
+
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+
+      <!-- CARD -->
+
+      <div class="group relative overflow-hidden rounded-[36px] bg-white border border-slate-100 p-8 hover:-translate-y-2 transition-all duration-500 shadow-xl shadow-black/[0.03]">
+
+        <div class="absolute top-0 right-0 w-40 h-40 bg-teal-100 rounded-full blur-3xl opacity-60"></div>
+
+        <div class="relative">
+
+          <div class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-teal-600/20">
+
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M9 17v-2a4 4 0 014-4h4"></path>
+              <circle cx="9" cy="7" r="4" stroke-width="1.8"></circle>
+            </svg>
+
+          </div>
+
+          <h3 class="text-2xl font-semibold mb-5">
+            Better Diagnosis
+          </h3>
+
           <p class="text-slate-500 leading-relaxed">
-            Dentistry has evolved from manual impressions and long procedures to efficient digital workflows that improve accuracy and patient comfort.
+            High-resolution digital imaging allows clinicians to detect issues earlier with exceptional precision and minimal radiation exposure.
           </p>
-        </div>
 
-        <!-- CARDS -->
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <div class="p-6 rounded-3xl border border-slate-100 bg-teal-50 hover:bg-teal-100 transition">
-            <p class="text-xs text-teal-600 font-bold uppercase tracking-widest">01</p>
-            <p class="mt-3 font-medium">3D scanning replaces uncomfortable molds</p>
-          </div>
-
-          <div class="p-6 rounded-3xl border border-slate-100 bg-teal-50 hover:bg-teal-100 transition">
-            <p class="text-xs text-teal-600 font-bold uppercase tracking-widest">02</p>
-            <p class="mt-3 font-medium">AI detects issues earlier</p>
-          </div>
-
-          <div class="p-6 rounded-3xl border border-slate-100 bg-teal-50 hover:bg-teal-100 transition">
-            <p class="text-xs text-teal-600 font-bold uppercase tracking-widest">03</p>
-            <p class="mt-3 font-medium">Same-day restorations</p>
-          </div>
-
-          <div class="p-6 rounded-3xl border border-slate-100 bg-teal-50 hover:bg-teal-100 transition">
-            <p class="text-xs text-teal-600 font-bold uppercase tracking-widest">04</p>
-            <p class="mt-3 font-medium">Digital smile previews</p>
-          </div>
-
-        </div>
-
-        <!-- EXPERIENCE -->
-        <div>
-          <h2 class="text-3xl font-semibold mb-4">
-            Better Experience for <span class="serif italic text-teal-600 font-normal">Patients</span>
-          </h2>
-          <p class="text-slate-500 leading-relaxed">
-            Treatments are quicker, less invasive, and more predictable — resulting in higher comfort and confidence.
-          </p>
-        </div>
-
-        <!-- QUOTE -->
-        <div class="p-10 rounded-[30px] bg-teal-50 text-center">
-          <p class="text-xl serif italic text-teal-700">
-            “The future is fully personalized — where every smile is designed with precision.”
-          </p>
         </div>
 
       </div>
+
+      <!-- CARD -->
+
+      <div class="group relative overflow-hidden rounded-[36px] bg-gradient-to-br from-teal-600 to-cyan-500 text-white p-8 hover:-translate-y-2 transition-all duration-500 shadow-[0_25px_60px_rgba(13,148,136,0.25)]">
+
+        <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+
+        <div class="relative">
+
+          <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/20 flex items-center justify-center mb-8">
+
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M12 8v4l3 3"></path>
+              <circle cx="12" cy="12" r="9" stroke-width="1.8"></circle>
+            </svg>
+
+          </div>
+
+          <h3 class="text-2xl font-semibold mb-5">
+            Faster Treatments
+          </h3>
+
+          <p class="text-white/80 leading-relaxed">
+            Digital impressions and CAD/CAM systems dramatically reduce waiting times while improving treatment accuracy and efficiency.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="group relative overflow-hidden rounded-[36px] bg-white border border-slate-100 p-8 hover:-translate-y-2 transition-all duration-500 shadow-xl shadow-black/[0.03]">
+
+        <div class="absolute top-0 right-0 w-40 h-40 bg-cyan-100 rounded-full blur-3xl opacity-60"></div>
+
+        <div class="relative">
+
+          <div class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-teal-600/20">
+
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                d="M5 13l4 4L19 7"></path>
+            </svg>
+
+          </div>
+
+          <h3 class="text-2xl font-semibold mb-5">
+            Predictable Results
+          </h3>
+
+          <p class="text-slate-500 leading-relaxed">
+            AI-assisted planning and digital simulations create highly predictable outcomes tailored to each patient’s anatomy and goals.
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="text-center pb-24 fade-up">
-    <h3 class="text-3xl md:text-5xl font-semibold mb-6">
-      Experience Dentistry That Feels 
-      <span class="serif italic text-teal-600 font-normal">Effortless</span>
-    </h3>
+  </div>
 
-    <button class="bg-teal-600 text-white px-8 py-4 rounded-2xl text-xs uppercase tracking-widest font-bold hover:bg-teal-700 transition">
-      Book Consultation
-    </button>
-  </section>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+
+<section class="px-6 lg:px-20 pb-28 fade-up">
+
+  <div class="max-w-6xl mx-auto">
+
+    <div class="mb-16">
+
+      <p class="text-teal-600 text-xs font-bold uppercase tracking-[0.4em] mb-4">
+        Treatment Journey
+      </p>
+
+      <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">
+        A Fully
+        <span class="serif italic font-normal text-teal-600">
+          Digital Workflow
+        </span>
+      </h2>
+
+    </div>
+
+    <div class="relative">
+
+      <!-- vertical line -->
+      <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-teal-300 via-teal-500 to-transparent"></div>
+
+      <div class="space-y-14">
+
+        <!-- STEP -->
+
+        <div class="relative pl-20">
+
+          <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+            1
+          </div>
+
+          <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+
+            <h3 class="text-2xl font-semibold mb-4">
+              Digital Consultation
+            </h3>
+
+            <p class="text-slate-500 leading-relaxed">
+              Every treatment begins with high-definition photography, digital scans, and 3D imaging to create a precise clinical roadmap.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- STEP -->
+
+        <div class="relative pl-20">
+
+          <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+            2
+          </div>
+
+          <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+
+            <h3 class="text-2xl font-semibold mb-4">
+              AI Treatment Planning
+            </h3>
+
+            <p class="text-slate-500 leading-relaxed">
+              Intelligent software assists clinicians in analyzing bite alignment, gum health, and restorative accuracy before procedures even begin.
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- STEP -->
+
+        <div class="relative pl-20">
+
+          <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+            3
+          </div>
+
+          <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+
+            <h3 class="text-2xl font-semibold mb-4">
+              Precision Execution
+            </h3>
+
+            <p class="text-slate-500 leading-relaxed">
+              Guided technologies and digital manufacturing ensure restorations fit with exceptional precision and aesthetics.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ===== BLOG STYLE PARAGRAPH SECTION ===== -->
+
+<section class="px-6 lg:px-20 pb-28 fade-up">
+
+  <div class="max-w-5xl mx-auto">
+
+    <div class="glass rounded-[50px] p-10 md:p-16 shadow-[0_30px_80px_rgba(15,23,42,0.05)]">
+
+      <p class="text-4xl serif italic text-slate-700 leading-relaxed mb-10">
+        “Digital dentistry is no longer the future — it is the new global standard for precision-focused patient care.”
+      </p>
+
+      <div class="space-y-8 text-lg leading-relaxed text-slate-500">
+
+        <p>
+          Modern dental clinics are rapidly transitioning toward digital ecosystems that combine artificial intelligence, advanced scanning, and precision manufacturing. These innovations allow dentists to diagnose conditions earlier, create highly personalized treatment plans, and significantly reduce patient discomfort.
+        </p>
+
+        <p>
+          One of the most revolutionary developments is intraoral scanning technology. Traditional molds often caused discomfort and lacked precision, while digital scanners capture millions of data points within seconds to create ultra-accurate 3D models of the teeth and gums.
+        </p>
+
+        <p>
+          CAD/CAM systems have also transformed restorative dentistry by enabling same-day crowns, veneers, and bridges. Instead of waiting weeks for laboratory fabrication, patients can now receive restorations within a single appointment.
+        </p>
+
+        <p>
+          Artificial intelligence is another emerging force in dentistry. AI-powered tools assist clinicians by identifying patterns in radiographs, predicting treatment outcomes, and enhancing clinical decision-making with remarkable consistency.
+        </p>
+
+        <p>
+          Beyond clinical accuracy, digital dentistry improves the emotional patient experience. Treatments become more transparent, visual, and understandable — helping patients feel informed and confident at every stage of care.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- ===== CTA ===== -->
 
   <script>
-    // reveal
+
+    // ===== REVEAL =====
+
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add("show");
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add('show');
+
+        }
+
       });
+
     }, { threshold: 0.1 });
 
-    document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
-
-    // progress
-    window.addEventListener("scroll", () => {
-      const scroll = window.scrollY;
-      const height = document.body.scrollHeight - window.innerHeight;
-      document.getElementById("progressBar").style.transform = `scaleX(${scroll/height})`;
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
     });
+
+    // ===== PROGRESS =====
+
+    window.addEventListener('scroll', () => {
+
+      const scroll = window.scrollY;
+
+      const height =
+        document.body.scrollHeight - window.innerHeight;
+
+      document.getElementById('progressBar').style.transform =
+        `scaleX(${scroll / height})`;
+
+    });
+
   </script>
 
 </body>
+
 </html>

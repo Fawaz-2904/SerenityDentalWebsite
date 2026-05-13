@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Precision Glucose Insights | Serenity Health</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --teal: #0f766e;
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fbfb;
+      color: #0f172a;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    @keyframes float1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(80px, 40px);
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+      }
+
+      50% {
+        transform: translate(-60px, -30px);
+      }
+    }
+
+    .blob1 {
+      animation: float1 18s ease-in-out infinite;
+    }
+
+    .blob2 {
+      animation: float2 22s ease-in-out infinite;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glass {
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    #progressBar {
+      transform-origin: left;
+    }
+
+    .image-wrap {
+      perspective: 1200px;
+    }
+
+    .image-card {
+      transform-style: preserve-3d;
+      transition: transform .7s ease;
+    }
+
+    .image-wrap:hover .image-card {
+      transform: rotateX(3deg) rotateY(-5deg) scale(1.01);
+    }
+
+    @media(max-width:768px) {
+
+      .glass {
+        backdrop-filter: blur(12px);
+      }
+
+      .image-wrap:hover .image-card {
+        transform: none;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PROGRESS -->
+
+  <div class="fixed top-0 left-0 w-full h-[3px] bg-white/40 backdrop-blur-xl z-[999]">
+    <div id="progressBar"
+      class="h-full bg-gradient-to-r from-teal-400 via-teal-500 to-teal-500 scale-x-0"></div>
+  </div>
+
+  <!-- BACKGROUND -->
+
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+
+    <div class="absolute inset-0 bg-gradient-to-br from-white via-teal-50/40 to-white"></div>
+
+    <div
+      class="absolute top-[-10%] left-[-10%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-teal-300/20 rounded-full blur-3xl blob1">
+    </div>
+
+    <div
+      class="absolute bottom-[-10%] right-[-10%] w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-teal-300/20 rounded-full blur-3xl blob2">
+    </div>
+
+  </div>
+
+  <!-- HERO -->
+
+  <section class="pt-10 md:pt-12 pb-16 md:pb-24 lg:pb-28 px-4 sm:px-6 lg:px-20 fade-up">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+
+        <!-- LEFT -->
+
+        <div class="lg:col-span-7">
+
+          <div class="flex items-center gap-4 mb-8">
+
+            <span class="h-px w-16 bg-teal-600"></span>
+
+            <span class="text-teal-600 text-[10px] sm:text-xs font-bold uppercase tracking-[0.4em]">
+              Advanced Diabetes Intelligence
+            </span>
+
+          </div>
+
+          <h1
+            class="text-4xl sm:text-5xl md:text-6xl lg:text-8xl leading-[1] md:leading-[0.95] tracking-tight font-semibold">
+
+            Precision
+            <br>
+
+            <span
+              class="serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-500">
+              Glucose Insights
+            </span>
+
+          </h1>
+
+          <p
+            class="mt-6 md:mt-10 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-500 border-l-2 border-teal-600/20 pl-4 md:pl-8">
+
+            Smarter glucose monitoring powered by real-time analytics, personalized health data, and predictive
+            wellness insights to support better diabetic care and long-term metabolic balance.
+
+          </p>
+
+          <!-- STATS -->
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mt-10 md:mt-12">
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">24/7</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Live Monitoring
+              </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">AI</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Predictive Analytics
+              </p>
+
+            </div>
+
+            <div class="glass rounded-3xl p-4 md:p-6 shadow-lg shadow-black/5">
+
+              <h3 class="text-2xl md:text-3xl font-semibold text-teal-600">360°</h3>
+
+              <p class="text-[10px] md:text-xs uppercase tracking-[0.2em] text-slate-400 mt-2">
+                Health Insights
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="lg:col-span-5">
+
+          <div class="image-wrap">
+
+            <div class="image-card relative">
+
+              <div
+                class="absolute -inset-4 md:-inset-6 bg-gradient-to-r from-teal-300/30 to-teal-300/30 rounded-[40px] md:rounded-[50px] blur-3xl">
+              </div>
+
+              <img
+                src="glucoseblog.jpg"
+                class="relative w-full h-[340px] sm:h-[450px] lg:h-[600px] object-cover rounded-[28px] md:rounded-[40px] shadow-[0_40px_80px_rgba(6,182,212,0.18)] border border-white/60">
+
+              <div
+                class="absolute bottom-4 left-4 md:bottom-6 md:left-6 glass rounded-2xl md:rounded-3xl p-4 md:p-5 shadow-xl w-[190px] sm:w-[240px]">
+
+                <p class="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-teal-600 font-bold">
+                  Insight Engine
+                </p>
+
+                <h4 class="mt-2 md:mt-3 font-semibold text-sm sm:text-base md:text-lg leading-snug">
+                  Personalized Data for Better Glucose Control
+                </h4>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ARTICLE -->
+
+  <section class="px-4 sm:px-6 lg:px-20 pb-16 md:pb-24 lg:pb-28 fade-up">
+
+    <div class="max-w-7xl mx-auto">
+
+      <div
+        class="glass rounded-[28px] md:rounded-[50px] shadow-[0_30px_80px_rgba(15,23,42,0.05)] overflow-hidden border border-white/60">
+
+        <div class="grid lg:grid-cols-12">
+
+          <!-- SIDEBAR -->
+
+          <div class="lg:col-span-3 lg:border-r border-slate-100 p-5 md:p-8 lg:p-10 bg-white/40">
+
+            <div class="lg:sticky lg:top-28">
+
+              <p class="text-[10px] uppercase tracking-[0.4em] text-slate-400 font-bold mb-6">
+                Smart Monitoring
+              </p>
+
+              <div class="space-y-4">
+
+                <div class="p-5 rounded-3xl bg-teal-50 border border-teal-100">
+
+                  <h4 class="font-semibold">Real-Time Tracking</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Monitor glucose patterns continuously and accurately.
+                  </p>
+
+                </div>
+
+                <div class="p-5 rounded-3xl bg-white border border-slate-100">
+
+                  <h4 class="font-semibold">Predictive Alerts</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Detect fluctuations before they become critical.
+                  </p>
+
+                </div>
+
+                <div class="p-5 rounded-3xl bg-white border border-slate-100">
+
+                  <h4 class="font-semibold">Lifestyle Integration</h4>
+
+                  <p class="text-sm text-slate-500 mt-2">
+                    Connect nutrition, sleep, and activity data seamlessly.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- CONTENT -->
+
+          <div class="lg:col-span-9 p-5 sm:p-8 md:p-12 lg:p-16">
+
+            <div class="max-w-4xl space-y-14 md:space-y-20">
+
+              <div>
+
+                <p class="text-2xl sm:text-3xl md:text-4xl serif italic leading-relaxed text-slate-700">
+
+                  “Precision glucose insights empower individuals to understand how daily habits impact sugar levels,
+                  enabling smarter decisions and more personalized diabetic care.”
+
+                </p>
+
+              </div>
+
+              <div>
+
+                <div class="flex items-center gap-4 mb-6">
+
+                  <div class="w-12 h-[1px] bg-teal-600"></div>
+
+                  <span class="text-teal-600 text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em]">
+                    Intelligent Wellness
+                  </span>
+
+                </div>
+
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight mb-8">
+
+                  Data-Driven
+                  <span class="serif italic text-teal-600 font-normal">
+                    Diabetes Care
+                  </span>
+
+                </h2>
+
+                <p class="text-base md:text-lg text-slate-500 leading-relaxed">
+
+                  Modern glucose intelligence combines continuous monitoring technology with advanced analytics to
+                  provide actionable health insights. By understanding patterns linked to meals, stress, exercise, and
+                  sleep, individuals can make informed lifestyle choices that improve glucose stability and overall
+                  wellness.
+
+                </p>
+
+              </div>
+
+              <!-- CARDS -->
+
+              <div class="grid md:grid-cols-2 gap-5 md:gap-8">
+
+                <div
+                  class="group p-5 sm:p-6 md:p-8 rounded-[32px] bg-gradient-to-br from-teal-50 to-white border border-teal-100 hover:-translate-y-2 transition-all duration-500">
+
+                  <div
+                    class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-6 text-lg font-bold">
+                    01
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-semibold mb-4">
+                    Personalized Glucose Analytics
+                  </h3>
+
+                  <p class="text-slate-500 leading-relaxed">
+                    Advanced health analytics help identify unique glucose trends and support tailored lifestyle and
+                    nutritional adjustments.
+                  </p>
+
+                </div>
+
+                <div
+                  class="group p-5 sm:p-6 md:p-8 rounded-[32px] bg-gradient-to-br from-teal-50 to-white border border-teal-100 hover:-translate-y-2 transition-all duration-500">
+
+                  <div
+                    class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-6 text-lg font-bold">
+                    02
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-semibold mb-4">
+                    Preventive Health Decisions
+                  </h3>
+
+                  <p class="text-slate-500 leading-relaxed">
+                    Smart alerts and continuous tracking encourage proactive wellness habits and reduce long-term
+                    diabetic risks.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= PRECISION GLUCOSE INSIGHTS SECTION ================= -->
+
+<!-- ===== FEATURED INSIGHTS ===== -->
+
+<section class="px-6 lg:px-20 pb-28 fade-up">
+
+    <div class="max-w-7xl mx-auto">
+  
+      <div class="flex items-end justify-between flex-wrap gap-6 mb-14">
+  
+        <div>
+  
+          <p class="text-teal-600 text-xs font-bold uppercase tracking-[0.4em] mb-4">
+            Advanced Diabetes Intelligence
+          </p>
+  
+          <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">
+            Why Precision
+            <span class="serif italic font-normal text-teal-600">
+              Glucose Insights Matter
+            </span>
+          </h2>
+  
+        </div>
+  
+        <p class="max-w-xl text-slate-500 leading-relaxed">
+          Precision glucose insights help individuals better understand blood sugar trends, improve metabolic balance, and make smarter health decisions through advanced monitoring and personalized data analysis.
+        </p>
+  
+      </div>
+  
+      <div class="grid lg:grid-cols-3 gap-8">
+  
+        <!-- CARD -->
+  
+        <div class="group relative overflow-hidden rounded-[36px] bg-white border border-slate-100 p-8 hover:-translate-y-2 transition-all duration-500 shadow-xl shadow-black/[0.03]">
+  
+          <div class="absolute top-0 right-0 w-40 h-40 bg-teal-100 rounded-full blur-3xl opacity-60"></div>
+  
+          <div class="relative">
+  
+            <div class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-teal-600/20">
+  
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M9 17v-6m4 6V7m4 10v-3"></path>
+              </svg>
+  
+            </div>
+  
+            <h3 class="text-2xl font-semibold mb-5">
+              Real-Time Tracking
+            </h3>
+  
+            <p class="text-slate-500 leading-relaxed">
+              Continuous glucose monitoring provides real-time data that helps identify fluctuations, patterns, and lifestyle triggers more accurately.
+            </p>
+  
+          </div>
+  
+        </div>
+  
+        <!-- CARD -->
+  
+        <div class="group relative overflow-hidden rounded-[36px] bg-gradient-to-br from-teal-600 to-teal-500 text-white p-8 hover:-translate-y-2 transition-all duration-500 shadow-[0_25px_60px_rgba(8,145,178,0.25)]">
+  
+          <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+  
+          <div class="relative">
+  
+            <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/20 flex items-center justify-center mb-8">
+  
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M12 8v4l3 3"></path>
+                <circle cx="12" cy="12" r="9" stroke-width="1.8"></circle>
+              </svg>
+  
+            </div>
+  
+            <h3 class="text-2xl font-semibold mb-5">
+              Personalized Insights
+            </h3>
+  
+            <p class="text-white/80 leading-relaxed">
+              Smart glucose analysis helps create personalized nutrition, activity, and wellness plans based on individual metabolic responses.
+            </p>
+  
+          </div>
+  
+        </div>
+  
+        <!-- CARD -->
+  
+        <div class="group relative overflow-hidden rounded-[36px] bg-white border border-slate-100 p-8 hover:-translate-y-2 transition-all duration-500 shadow-xl shadow-black/[0.03]">
+  
+          <div class="absolute top-0 right-0 w-40 h-40 bg-teal-100 rounded-full blur-3xl opacity-60"></div>
+  
+          <div class="relative">
+  
+            <div class="w-14 h-14 rounded-2xl bg-teal-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-teal-600/20">
+  
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+  
+            </div>
+  
+            <h3 class="text-2xl font-semibold mb-5">
+              Preventive Wellness
+            </h3>
+  
+            <p class="text-slate-500 leading-relaxed">
+              Early glucose trend detection supports preventive healthcare and helps reduce the risk of diabetes-related complications.
+            </p>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+  
+  <!-- ===== INSIGHTS TIMELINE ===== -->
+  
+  <section class="px-6 lg:px-20 pb-28 fade-up">
+  
+    <div class="max-w-6xl mx-auto">
+  
+      <div class="mb-16">
+  
+        <p class="text-teal-600 text-xs font-bold uppercase tracking-[0.4em] mb-4">
+          Smart Monitoring Journey
+        </p>
+  
+        <h2 class="text-5xl md:text-6xl font-semibold tracking-tight">
+          Building Better
+          <span class="serif italic font-normal text-teal-600">
+            Glucose Awareness
+          </span>
+        </h2>
+  
+      </div>
+  
+      <div class="relative">
+  
+        <!-- vertical line -->
+        <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-teal-300 via-teal-500 to-transparent"></div>
+  
+        <div class="space-y-14">
+  
+          <!-- STEP -->
+  
+          <div class="relative pl-20">
+  
+            <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+              1
+            </div>
+  
+            <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+  
+              <h3 class="text-2xl font-semibold mb-4">
+                Continuous Monitoring
+              </h3>
+  
+              <p class="text-slate-500 leading-relaxed">
+                Advanced glucose monitoring devices provide accurate and continuous readings to help individuals better understand daily sugar variations.
+              </p>
+  
+            </div>
+  
+          </div>
+  
+          <!-- STEP -->
+  
+          <div class="relative pl-20">
+  
+            <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+              2
+            </div>
+  
+            <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+  
+              <h3 class="text-2xl font-semibold mb-4">
+                Data-Driven Lifestyle Planning
+              </h3>
+  
+              <p class="text-slate-500 leading-relaxed">
+                Personalized insights based on glucose trends help optimize meal timing, physical activity, sleep quality, and stress management.
+              </p>
+  
+            </div>
+  
+          </div>
+  
+          <!-- STEP -->
+  
+          <div class="relative pl-20">
+  
+            <div class="absolute left-0 top-0 w-12 h-12 rounded-2xl bg-teal-600 text-white flex items-center justify-center font-bold shadow-lg shadow-teal-600/20">
+              3
+            </div>
+  
+            <div class="glass rounded-[32px] p-8 shadow-xl shadow-black/[0.03]">
+  
+              <h3 class="text-2xl font-semibold mb-4">
+                Long-Term Metabolic Health
+              </h3>
+  
+              <p class="text-slate-500 leading-relaxed">
+                Precision glucose insights support healthier habits, improved metabolic stability, and long-term wellness management.
+              </p>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+  
+  <!-- ===== BLOG STYLE PARAGRAPH SECTION ===== -->
+  
+  <section class="px-6 lg:px-20 pb-28 fade-up">
+  
+    <div class="max-w-5xl mx-auto">
+  
+      <div class="glass rounded-[50px] p-10 md:p-16 shadow-[0_30px_80px_rgba(15,23,42,0.05)]">
+  
+        <p class="text-4xl serif italic text-slate-700 leading-relaxed mb-10">
+          “Precision glucose insights empower healthier decisions by transforming real-time data into meaningful lifestyle improvements.”
+        </p>
+  
+        <div class="space-y-8 text-lg leading-relaxed text-slate-500">
+  
+          <p>
+            Precision glucose insights combine advanced monitoring technologies with personalized health analysis to provide a deeper understanding of blood sugar behavior. Modern glucose monitoring systems allow individuals to track fluctuations more accurately and respond proactively to their body’s needs.
+          </p>
+  
+          <p>
+            One of the biggest advantages of precision glucose monitoring is the ability to identify patterns that may otherwise go unnoticed. Food choices, stress levels, sleep quality, physical activity, and medication routines can all influence glucose balance differently in each individual.
+          </p>
+  
+          <p>
+            Personalized glucose insights help create targeted lifestyle strategies that support healthier metabolic function. Understanding how the body responds to different habits enables smarter nutrition planning, improved exercise routines, and better daily health decisions.
+          </p>
+  
+          <p>
+            Continuous monitoring also plays an important role in preventive healthcare. Detecting irregular glucose patterns early can help reduce long-term complications associated with diabetes, cardiovascular disease, and metabolic disorders.
+          </p>
+  
+          <p>
+            Beyond numbers and reports, precision glucose insights encourage individuals to build sustainable wellness habits. Better awareness, improved energy levels, and greater confidence in daily health management contribute to long-term physical and emotional well-being.
+          </p>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+
+  <!-- CTA -->
+
+  <script>
+
+    const observer = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+
+      });
+
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    window.addEventListener('scroll', () => {
+
+      const scroll = window.scrollY;
+
+      const height =
+        document.body.scrollHeight - window.innerHeight;
+
+      document.getElementById('progressBar').style.transform =
+        `scaleX(${scroll / height})`;
+
+    });
+
+  </script>
+
+</body>
+
+</html>
